@@ -755,7 +755,7 @@ class CI_Input {
 	 */
 	public function request_headers($xss_clean = FALSE)
 	{
-		// If header is already defined, return it immediately
+		// If header.php is already defined, return it immediately
 		if ( ! empty($this->headers))
 		{
 			return $this->_fetch_from_array($this->headers, NULL, $xss_clean);

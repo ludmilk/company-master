@@ -164,7 +164,7 @@ class CI_Email {
 	public $validate	= FALSE;
 
 	/**
-	 * X-Priority header value.
+	 * X-Priority header.php value.
 	 *
 	 * @var	int	1-5
 	 */
@@ -233,7 +233,7 @@ class CI_Email {
 	protected $_safe_mode		= FALSE;
 
 	/**
-	 * Subject header
+	 * Subject header.php
 	 *
 	 * @var	string
 	 */
@@ -282,7 +282,7 @@ class CI_Email {
 	protected $_smtp_auth		= FALSE;
 
 	/**
-	 * Whether to send a Reply-To header
+	 * Whether to send a Reply-To header.php
 	 *
 	 * @var	bool
 	 */
@@ -362,7 +362,7 @@ class CI_Email {
 	/**
 	 * $priority translations
 	 *
-	 * Actual values to send with the X-Priority header
+	 * Actual values to send with the X-Priority header.php
 	 *
 	 * @var	string[]
 	 */
@@ -1630,7 +1630,7 @@ class CI_Email {
 				// There are reports that iconv_mime_encode() might fail and return FALSE
 				if ($output !== FALSE)
 				{
-					// iconv_mime_encode() will always put a header field name.
+					// iconv_mime_encode() will always put a header.php field name.
 					// We've passed it an empty one, but it still prepends our
 					// encoded string with ': ', so we need to strip it.
 					return self::substr($output, 2);
@@ -1669,7 +1669,7 @@ class CI_Email {
 			}
 		}
 
-		// End the header
+		// End the header.php
 		return $output.'?=';
 	}
 

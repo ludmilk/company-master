@@ -440,7 +440,7 @@ class CI_Profiler {
 	// --------------------------------------------------------------------
 
 	/**
-	 * Compile header information
+	 * Compile header.php information
 	 *
 	 * Lists HTTP headers
 	 *

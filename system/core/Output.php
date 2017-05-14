@@ -204,13 +204,13 @@ class CI_Output {
 	/**
 	 * Set Header
 	 *
-	 * Lets you set a server header which will be sent with the final output.
+	 * Lets you set a server header.php which will be sent with the final output.
 	 *
 	 * Note: If a file is cached, headers will not be sent.
 	 * @todo	We need to figure out how to permit headers to be cached.
 	 *
 	 * @param	string	$header		Header
-	 * @param	bool	$replace	Whether to replace the old header value, if already set
+	 * @param	bool	$replace	Whether to replace the old header.php value, if already set
 	 * @return	CI_Output
 	 */
 	public function set_header($header, $replace = TRUE)
