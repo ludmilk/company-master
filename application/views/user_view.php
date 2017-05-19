@@ -13,9 +13,10 @@
 
 <?php
 
-foreach ($results as $object ){
+//echo $results;
 
-    echo $object->password . "<br>";
+foreach ($results as $object ){
+echo $object->username . "<br>";
 }
 
 
