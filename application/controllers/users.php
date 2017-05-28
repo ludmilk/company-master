@@ -82,8 +82,16 @@ public function delete(){
 
        } else {
            // redirect('http://google.com');
-       }
+           if ($this->user_model->create_user()) {
 
+               $this->session->set_flashdata('user_registered', 'Používateľ bol zaregistrovaný');
+               redirect('Home/index');
+
+           } else {
+
+           }
+
+       }
    }
 
 
