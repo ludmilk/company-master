@@ -81,11 +81,12 @@ public function create_user(){
 public function login_user($username, $password){
 
     $this->db->where('username', $username);
-    $this->db->where('password', $password);
 
     $result = $this->db->get('users');
 
-    if($result->num_rows()==1){
+    $db_password = $result->row(2)->password;
+
+    if(password_verify($password, $db_password)){
         return $result->row(0)->id;
     }else {
         return false;
