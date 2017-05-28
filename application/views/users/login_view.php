@@ -3,6 +3,11 @@
 <h2>Logout</h2>
 
     <?php echo form_open('users/logout'); ?>
+<p>
+    <?php if($this->session->userdata('username')): ?>
+    <?php echo "Si prihlásený ako " . $this->session->userdata('username'); ?>
+    <?php endif; ?>
+</p>
 
     <?php
     $data = array(
