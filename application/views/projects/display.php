@@ -1,5 +1,5 @@
 <div class="col-xs-9">
-    <h1>Project name</h1>
+    <h1><?php echo $project_data->project_name; ?></h1>
 </div>
 
 
