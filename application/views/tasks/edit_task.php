@@ -1,5 +1,5 @@
 
-<h2> Vytvor projekt</h2>
+<h2> Zmeň projekt</h2>
 <?php $attributes = array('ID'=> 'edit_task_form', 'class'=>'form_horizontal');?>
 
 <?php echo validation_errors("<p class='bg-danger'>"); ?>
@@ -13,7 +13,7 @@
     $data = array(
         'class'=>'form-control',
         'name'=>'task_name',
-        'placeholder'=>'Enter Task Name'
+        'value' => $the_task->task_name
     ); ?>
 
     <?php echo form_input($data);?>
@@ -26,7 +26,8 @@
     <?php
     $data = array(
         'class'=>'form-control',
-        'name'=>'task_body'
+        'name'=>'task_body',
+        'value' => $the_task->task_body
     ); ?>
 
     <?php echo form_textarea($data);?>
@@ -62,7 +63,7 @@
     $data = array(
         'class'=>'btn btn-primary',
         'name'=>'submit',
-        'value'=>'Create'
+        'value'=>'Zmeniť'
     );
     ?>
 
