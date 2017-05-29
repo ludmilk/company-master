@@ -70,6 +70,8 @@ class Projects extends CI_Controller {
         $this->form_validation->set_rules('project_body', 'Project popis', 'trim|required');
 
         if ($this->form_validation->run() == FALSE){
+            $data['project_data'] = $this->project_model->get_projects_info($project_id);
+
             $data ['main_view'] =  'projects/edit_project';
             $this->load->view('layout/main' , $data);
 
@@ -80,7 +82,7 @@ class Projects extends CI_Controller {
                 'project_body' => $this->input->post('project_body'),
             );
 
-            if ($this->project_model->edit_project($data)){
+            if ($this->project_model->edit_project($project_id, $data)){
                 $this->session->set_flashdata('project_updated', "Tvoj projekt bol pretvorený");
                 redirect('projects/index');
             }

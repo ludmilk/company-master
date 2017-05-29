@@ -5,7 +5,7 @@
 
 <?php echo validation_errors("<p class='bg-danger'>"); ?>
 
-<?php echo form_open('projects/edit', $attributes);?>
+<?php echo form_open('projects/edit'. $project_data->id .'', $attributes);?>
 
 <div class="form-group">
 
@@ -14,7 +14,7 @@
     $data = array(
         'class'=>'form-control',
         'name'=>'project_name',
-        'placeholder'=>'Enter Project Name'
+        'value'=> $project_data->project_name
     ); ?>
 
     <?php echo form_input($data);?>
@@ -27,7 +27,8 @@
     <?php
     $data = array(
         'class'=>'form-control',
-        'name'=>'project_body'
+        'name'=>'project_body',
+        'value' => $project_data->project_body
     ); ?>
 
     <?php echo form_textarea($data);?>
