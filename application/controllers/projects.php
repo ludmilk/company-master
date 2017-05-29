@@ -53,19 +53,40 @@ class Projects extends CI_Controller {
             $data = array(
                 'project_user_id' => $this->session->userdata('user_id'),
                 'project_name' => $this->input->post('project_name'),
-                'project_name' => $this->input->post('project_body'),
+                'project_body' => $this->input->post('project_body'),
             );
 
             if ($this->project_model->create_project($data)){
                 $this->session->set_flashdata('project_created', "Tvoj projekt bol vytvorený");
                 redirect('projects/index');
             }
-
         }
-
-
     }
 
+
+    public function edit($project_id){
+
+        $this->form_validation->set_rules('project_name', 'Project Name', 'trim|required');
+        $this->form_validation->set_rules('project_body', 'Project popis', 'trim|required');
+
+        if ($this->form_validation->run() == FALSE){
+            $data ['main_view'] =  'projects/edit_project';
+            $this->load->view('layout/main' , $data);
+
+        } else {
+            $data = array(
+                'project_user_id' => $this->session->userdata('user_id'),
+                'project_name' => $this->input->post('project_name'),
+                'project_body' => $this->input->post('project_body'),
+            );
+
+            if ($this->project_model->edit_project($data)){
+                $this->session->set_flashdata('project_updated', "Tvoj projekt bol pretvorený");
+                redirect('projects/index');
+            }
+        }
+
+    }
 
 }
 

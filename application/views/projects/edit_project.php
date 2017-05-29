@@ -1,11 +1,11 @@
 
 
-<h2> Vytvor projekt</h2>
+<h2> Zmeň projekt</h2>
 <?php $attributes = array('ID'=> 'create_form', 'class'=>'form_horizontal');?>
 
 <?php echo validation_errors("<p class='bg-danger'>"); ?>
 
-<?php echo form_open('projects/create', $attributes);?>
+<?php echo form_open('projects/edit', $attributes);?>
 
 <div class="form-group">
 
@@ -46,7 +46,7 @@
     $data = array(
         'class'=>'btn btn-primary',
         'name'=>'submit',
-        'value'=>'Create'
+        'value'=>'Updated'
     );
     ?>
 
