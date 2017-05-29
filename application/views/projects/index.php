@@ -1,7 +1,10 @@
 <h1>Projects </h1>
 
 
+<a class="btn btn-primary pull-right" href="<?php echo base_url(); ?>projects/create">Vytvor projekt</a>
+
 <table class="table table-hover">
+
     <thead>
         <tr>
             <th>

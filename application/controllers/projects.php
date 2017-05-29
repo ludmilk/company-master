@@ -4,7 +4,7 @@
  * User: Ľudmila
  * Date: 28.05.2017
  * Time: 21:38
- */
+  */
 
 class Projects extends CI_Controller {
 
@@ -35,6 +35,34 @@ class Projects extends CI_Controller {
 
         $data['main_view']="projects/display";
         $this->load->view('layout/main', $data);
+
+    }
+
+
+    public function create(){
+
+
+        $this->form_validation->set_rules('project_name', 'Project Name', 'trim|required');
+        $this->form_validation->set_rules('project_body', 'Project popis', 'trim|required');
+
+        if ($this->form_validation->run() == FALSE){
+            $data ['main_view'] =  'projects/create_project';
+            $this->load->view('layout/main' , $data);
+
+        } else {
+            $data = array(
+                'project_user_id' => $this->session->userdata('user_id'),
+                'project_name' => $this->input->post('project_name'),
+                'project_name' => $this->input->post('project_body'),
+            );
+
+            if ($this->project_model->create_project($data)){
+                $this->session->set_flashdata('project_created', "Tvoj projekt bol vytvorený");
+                redirect('projects/index');
+            }
+
+        }
+
 
     }
 
