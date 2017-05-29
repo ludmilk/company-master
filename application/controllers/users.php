@@ -127,10 +127,10 @@ public function login(){
             $this->session->set_userdata($user_data);
             $this->session->set_flashdata('login_success', 'You are now logged in');
 
-            $data['main_view']="admin_view";
-            $this->load->view('layout/main', $data);
+            //$data['main_view']="admin_view";
+            //$this->load->view('layout/main', $data);
 
-            //redirect('home/index');
+            redirect('home/index');
 
         } else {
 
