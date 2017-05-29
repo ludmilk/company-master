@@ -36,10 +36,13 @@
             </ul>
 
 
+            <?php if($this->session->userdata('logged_in')): ?>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
+
+                    <li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
 
                     </ul>
+            <?php endif; ?>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->
