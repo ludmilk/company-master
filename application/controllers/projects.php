@@ -83,12 +83,22 @@ class Projects extends CI_Controller {
             );
 
             if ($this->project_model->edit_project($project_id, $data)){
-                $this->session->set_flashdata('project_updated', "Tvoj projekt bol pretvorený");
+                $this->session->set_flashdata('project_updated', "Tvoj projekt bol zmenení");
                 redirect('projects/index');
             }
         }
 
     }
+
+
+    public function delete($project_id){
+
+        $this->project_model->delete_project($project_id);
+        $this->session->set_flashdata('project_deleted', "Tvoj projekt bol vymazaný");
+        redirect('projects/index');
+
+    }
+
 
 }
 
