@@ -5,7 +5,7 @@
 
 <?php echo validation_errors("<p class='bg-danger'>"); ?>
 
-<?php echo form_open('projects/edit'. $project_data->id .'', $attributes);?>
+<?php echo form_open('projects/edit/'. $project_data->id .'', $attributes);?>
 
 <div class="form-group">
 
@@ -47,7 +47,7 @@
     $data = array(
         'class'=>'btn btn-primary',
         'name'=>'submit',
-        'value'=>'Updated'
+        'value'=>'Update'
     );
     ?>
 

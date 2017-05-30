@@ -36,7 +36,7 @@ class Project_model extends CI_Model{
 
     public function create_project($data){
 
-        $insert_query = $this->db->insert('project', $data);
+        $insert_query = $this->db->insert('projects', $data);
         return $insert_query;
 
     }

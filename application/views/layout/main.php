@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>User view</title>
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.min.css">
-
-
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/custom.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -16,7 +14,8 @@
 <body>
 
 
-<nav class="navbar navbar-inverse">
+
+<nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -32,7 +31,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="<?php echo base_url(); ?> ">Home <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="<?php echo base_url(); ?> ">Domov <span class="sr-only">(current)</span></a></li>
+
+                <li><a href="<?php echo base_url(); ?>projects">Projekty <span class="sr-only">(current)</span></a></li>
+
                 <li><a href="<?php echo base_url(); ?>users/register">Register <span class="sr-only">(current)</span></a></li>
 
                     </ul>
@@ -43,7 +45,7 @@
             <?php if($this->session->userdata('logged_in')): ?>
             <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="<?php echo base_url(); ?>users/logout">Logout</a></li>
+                    <li><a href="<?php echo base_url(); ?>users/logout">Odhlasenie</a></li>
 
                     </ul>
             <?php endif; ?>

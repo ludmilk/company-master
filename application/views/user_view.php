@@ -1,30 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>User view</title>
+	<title>User view</title>
 </head>
 
 <body>
 
+<p>Directory access is forbidden.</p>
+
 <h1>
 
-
-
-<?php
-
-//echo $results;
-
-foreach ($results as $object ){
-echo $object->username . "<br>";
-}
-
-
-?>
-
-
-</body>
+	<?php
+	foreach ($results as $object){
+  	 echo $object->username . "<br>";
+ } ?>
 
 </h1>
+
+</body>
 
 </html>

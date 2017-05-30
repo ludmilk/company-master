@@ -39,13 +39,13 @@ public function create($project_id){
             'due_date' => $this->input->post('due_date')
         );
 
-        if ($this->project_model->create_project($data)){
-            $this->session->set_flashdata('task_created', "Bol vytvorený");
-            redirect('tasks/index');
+        if ($this->task_model->create_task($data)){
+            $this->session->set_flashdata('task_create', "Bol vytvorený");
+            redirect("projects/index");
         }
     }
 }
-
+//chyba - project, task
 
     public function edit($task_id){
 
@@ -71,7 +71,7 @@ public function create($project_id){
                 'due_date' => $this->input->post('due_date')
             );
 
-            if ($this->project_model->edit_task($task_id, $data)){
+            if ($this->task_model->edit_task($task_id, $data)){
                 $this->session->set_flashdata('task_updated', "Bol vytvorený");
                 redirect("projects/index");
             }
@@ -82,7 +82,7 @@ public function create($project_id){
 
         $this->task_model->delete_task($task_id);
         $this->session->set_flashdata('task_deleted', "Úloha bola vymazaná");
-        redirect("projects/display/".$project_id."");
+        redirect("projects/display/" . $project_id . " ");
 
     }
 
@@ -91,7 +91,7 @@ public function create($project_id){
         if ($this->task_model->mark_task_complete($task_id)){
             $project_id = $this->task_model->get_project_task_id($task_id);
             $this->session->set_flashdata('mark_done', 'Táto úloha bola dokončená');
-            redirect('projects/display/' .$project_id. '');
+            redirect('projects/display/' . $project_id . '');
         }
 
     }
@@ -99,9 +99,9 @@ public function create($project_id){
     public function mark_incomplete($task_id){
 
         if ($this->task_model->mark_task_incomplete($task_id)){
-            $project_id = $this->task_model->get_project_task_id($task_id);
+            $project_id = $this->task_model->get_task_project_id($task_id);
             $this->session->set_flashdata('mark_undone', 'Marked Undone');
-            redirect('projects/display/' .$project_id. '');
+            redirect('projects/display/' . $project_id . '');
         }
 
     }

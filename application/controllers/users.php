@@ -85,7 +85,7 @@ public function delete(){
            if ($this->user_model->create_user()) {
 
                $this->session->set_flashdata('user_registered', 'Používateľ bol zaregistrovaný');
-               redirect('Home/index');
+               redirect('home/index');
 
            } else {
 
@@ -94,57 +94,72 @@ public function delete(){
        }
    }
 
-
 public function login(){
 
-    $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
-    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
-    $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|min_length[3]');
+$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[3]');
+$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
+$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|min_length[3]'); 
 
+if($this->form_validation->run() == FALSE) {
 
-    if($this->form_validation->run()== FALSE){
+  $data = array(
 
-        $data = array(
-            'errors'=>validation_errors()
-        );
+    'errors' => validation_errors()
+    );
 
-        $this->session->set_flashdata($data);
-        redirect('home');
-    } else {
-
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $user_id = $this->user_model->login_user($username,$password);
-
-        if($user_id){
-            $user_data = array(
-                'user_id' => $user_id,
-                'username' => $username,
-                'logged_in' => true
-
-            );
-
-            $this->session->set_userdata($user_data);
-            $this->session->set_flashdata('login_success', 'You are now logged in');
-
-            //$data['main_view']="admin_view";
-            //$this->load->view('layout/main', $data);
-
-            redirect('home/index');
-
-        } else {
-
-            $this->session->set_flashdata('login_failed', 'Sorry You are not now logged ');
-            redirect('home/index');
-
-        }
-    }
-    //$this->input->post("username");
+  $this->session->set_flashdata($data);
+  redirect('home');
 }
 
-public function longout(){
- $this->session->sess_destroy();
- redirect('home/index');
+else{
+  $username = $this->input->post('username');
+  $password = $this->input->post('password');
+
+  $user_id = $this->user_model->login_user($username,$password);
+
+  if($user_id) {
+    $user_data = array(
+      'user_id' => $user_id,
+      'username' => $username,
+      'logged_in' => true 
+
+
+      );
+
+    $this->session->set_userdata($user_data);
+
+    $this->session->set_flashdata('login_success', 'Prihlaseny');
+
+
+    //$data['main_view'] = "admin_view";
+
+  //$this->load->view('layouts/main', $data);
+
+
+
+    redirect('home/index');
+  }
+  else{
+
+
+    $this->session->set_flashdata('login_failed', ' Neprihlaseny');
+    redirect('home/index');
+  }
+
+}
+
+// $this->input->post('username');
+
+
+}
+
+
+
+public function logout(){
+
+  $this->session->sess_destroy();
+  redirect('home/index');
+
 }
 
 

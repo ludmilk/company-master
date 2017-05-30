@@ -40,9 +40,9 @@
 
             <?php foreach ($projects as $project): ?>
                 <tr>
-                    <?php echo "<td><a href='". base_url() ."projects/display". $project->id ."'>" . $project->project_name . "</a></td>"; ?>
+                    <?php echo "<td><a href='". base_url() ."projects/display/". $project->id ."'>" . $project->project_name . "</a></td>"; ?>
                     <?php echo "<td>" . $project->project_body . "</td>"; ?>
-                    <td><a class="btn btn-danger" href="<?php echo base_url(); ?>projects/delete<?php echo $project->id; ?>"><span class="glyphicon glyphicon-remove"> </span></a></td>
+                    <td><a class="btn btn-danger" href="<?php echo base_url(); ?>projects/delete/<?php echo $project->id; ?>"><span class="glyphicon glyphicon-remove"></span></a></td>
 
                 </tr>
                 <?php endforeach;?>

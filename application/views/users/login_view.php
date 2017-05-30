@@ -23,7 +23,7 @@
 
 
 <h2>Login </h2>
-<?php $attributes = array('ID'=> 'login_form', 'class'=>'form_horizontal');?>
+<?php $attributes = array('id'=> 'login_form', 'class'=>'form_horizontal');?>
 
 <?php if($this->session->flashdata('errors')): ?>
 <?php echo $this->session->flashdata('errors');?>
@@ -94,5 +94,6 @@ $data = array(
 
 <?php echo form_close();?>
 
+<?php echo "logout ";  ?>
 
 <?php endif; ?>
