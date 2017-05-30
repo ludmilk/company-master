@@ -29,7 +29,7 @@
 
             <div class="task-actions">
                 <a href="<?php echo base_url(); ?>tasks/edit/<?php $task->id; ?>">Upraviť </a>
-                <a href="<?php echo base_url(); ?>tasks/delete/<?php $task->id; ?>">Vymazať </a>
+                <a href="<?php echo base_url(); ?>tasks/delete/<?php $task->project_id; ?>/<?php $task->id; ?>">Vymazať </a>
             </div>
 
             </td>";

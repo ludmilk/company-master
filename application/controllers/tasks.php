@@ -70,16 +70,16 @@ public function create($project_id){
 
             if ($this->project_model->edit_task($task_id, $data)){
                 $this->session->set_flashdata('task_updated', "Bol vytvorený");
-                redirect('projects/index');
+                redirect("projects/index");
             }
         }
     }
 
-    public function delete($task_id){
+    public function delete($project_id, $task_id){
 
         $this->task_model->delete_task($task_id);
         $this->session->set_flashdata('task_deleted', "Úloha bola vymazaná");
-        redirect('projects/index');
+        redirect("projects/display/".$project_id."");
 
     }
 
