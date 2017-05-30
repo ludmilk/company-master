@@ -75,6 +75,13 @@ public function create($project_id){
         }
     }
 
+    public function delete($task_id){
+
+        $this->task_model->delete_task($task_id);
+        $this->session->set_flashdata('task_deleted', "Úloha bola vymazaná");
+        redirect('projects/index');
+
+    }
 
 
 
