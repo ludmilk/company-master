@@ -1,4 +1,4 @@
-<h1>Task display view</h1>
+<h1>Úloha pre: <?php echo $project_name; ?></h1>
 
 <h1>Oslavy</h1>
 
