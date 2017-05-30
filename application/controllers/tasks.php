@@ -68,9 +68,9 @@ public function create($project_id){
                 'due_date' => $this->input->post('due_date')
             );
 
-            if ($this->project_model->create_project($data)){
-                $this->session->set_flashdata('task_created', "Bol vytvorený");
-                redirect('projects/display');
+            if ($this->project_model->edit_task($task_id, $data)){
+                $this->session->set_flashdata('task_updated', "Bol vytvorený");
+                redirect('projects/index');
             }
         }
     }

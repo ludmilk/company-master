@@ -43,7 +43,8 @@
     $data = array(
         'class'=>'form-control',
         'name'=>'due_date',
-        'type' => 'date'
+        'type' => 'date',
+        'value' => $the_task->due_date
     ); ?>
 
     <?php echo form_input($data);?>
