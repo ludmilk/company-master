@@ -28,14 +28,15 @@
             </div>
 
             <div class="task-actions">
-                <a href="<?php echo base_url(); ?>tasks/edit/<?php $task->id; ?>">Upraviť </a>
-                <a href="<?php echo base_url(); ?>tasks/delete/<?php $task->project_id; ?>/<?php $task->id; ?>">Vymazať </a>
+                <a href="<?php echo base_url(); ?>tasks/edit/<?php echo $task->id; ?>">Upraviť </a>
+                <a href="<?php echo base_url(); ?>tasks/delete/<?php echo $task->project_id; ?>/<?php $task->id; ?>">Vymazať </a>
             </div>
 
             </td>";
             <td> <?php echo $task->task_body; ?></td>";
             <td> <?php echo $task->date_created; ?></td>";
-
+            <td><a href="<?php echo base_url(); ?>tasks/mark_complete/<?php echo $task->id; ?>">Mark Complete</a></td>
+            <td><a href="<?php echo base_url(); ?>tasks/mark_incomplete/<?php echo $task->id; ?>">Mark Incomplete</a></td>
         </tr>
 
     </tbody>

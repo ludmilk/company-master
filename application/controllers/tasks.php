@@ -83,6 +83,25 @@ public function create($project_id){
 
     }
 
+    public function mark_complete($task_id){
+
+        if ($this->task_model->mark_task_complete($task_id)){
+            $project_id = $this->task_model->get_project_task_id($task_id);
+            $this->session->set_flashdata('mark_done', 'Táto úloha bola dokončená');
+            redirect('projects/display/' .$project_id. '');
+        }
+
+    }
+
+    public function mark_incomplete($task_id){
+
+        if ($this->task_model->mark_task_incomplete($task_id)){
+            $project_id = $this->task_model->get_project_task_id($task_id);
+            $this->session->set_flashdata('mark_undone', 'Marked Undone');
+            redirect('projects/display/' .$project_id. '');
+        }
+
+    }
 
 
 
